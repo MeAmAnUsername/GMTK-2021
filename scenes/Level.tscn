@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( 128, 128, 128, 448, 832, 448, 832, 128, 800, 128, 800, 416, 160, 416, 160, 128 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+position = Vector2( -7.62939e-06, 0 )
+scale = Vector2( 1, 1 )
+polygon = PoolVector2Array( 128, 128, 128, 448, 832, 448, 832, 128, 800, 128, 800, 416, 160, 416, 160, 128 )
