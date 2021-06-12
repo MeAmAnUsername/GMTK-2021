@@ -19,6 +19,9 @@ var attach_pressed : bool
 var is_connected : bool
 var nearBeacon : RigidBody2D
 
+var rope_pre = preload( "res://scenes/Rope.tscn" )
+var rope_inst
+
 func _init():
 	input = true
 	angular_damp = 6.0
@@ -31,6 +34,8 @@ func _ready():
 	#$HeliSprite.play()
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
+	rope_inst = rope_pre.instance()
+	get_tree().get_root().add_child(rope_inst)
 	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
@@ -53,9 +58,11 @@ func _process(delta):
 		if !is_connected and nearBeacon != null:
 			is_connected = true
 	
-	$Rope.visible = is_connected
-	if is_connected and nearBeacon != null:
-		$Rope.glo = [Vector2.ZERO, nearBeacon.position]
+	#rope.visible = is_connected
+	#if is_connected and nearBeacon != null:
+		
+	#	rope_inst.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+	#	print(rope_inst.points)
 		
 		
 	
