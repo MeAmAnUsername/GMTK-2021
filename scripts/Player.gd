@@ -4,10 +4,14 @@ var thrust = 1000
 var torque = 4000
 
 var force = Vector2()
+
 var thrust_charge = 0
 var torque_charge = 0
 var input_x : int
 var input_y : int
+
+const pre_segment = preload("res://scenes/RopeSegment.tscn")
+var seg
 
 func _init():
 	angular_damp = 6.0
@@ -27,6 +31,16 @@ func _process(delta):
 	gravity_scale += delta * (3.0 if (input_y == 0) else -6.0)
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
 
+func _ready():
+	seg = pre_segment.instance()
+	get_parent().add_child(seg)
+	seg.position.y = position.y + 100
+	seg.position.x = position.x + 10
+	seg.get_node("PinJoint2D").set_node_a(self.get_path())
+	seg.get_node("PinJoint2D").set_node_b(seg.get_node("segment").get_path())
+	
+	
+
 func _physics_process(_delta):
 	pass
 	
@@ -42,10 +56,6 @@ func _integrate_forces(state):
 	var total_thrust = thrust_charge * 5000 + thrust
 	applied_force = Vector2(0, total_thrust * input_y).rotated(rotation + TAU*0.25)
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
