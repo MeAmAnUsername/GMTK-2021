@@ -36,3 +36,6 @@ playing = true
 position = Vector2( 1.26135, -0.840839 )
 scale = Vector2( 2, 1 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
