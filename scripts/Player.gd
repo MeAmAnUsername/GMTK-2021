@@ -18,7 +18,6 @@ var dead : bool
 var attach_pressed : bool 
 var is_connected : bool
 var nearBeacon : RigidBody2D
-var rope: Line2D
 
 func _init():
 	input = true
@@ -32,8 +31,7 @@ func _ready():
 	#$HeliSprite.play()
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
-	rope = get_node("../Rope")
-	pass
+	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
 func _process(delta):
@@ -52,9 +50,9 @@ func _process(delta):
 		if !is_connected and nearBeacon != null:
 			is_connected = true
 	
-	rope.visible = is_connected
+	$Rope.visible = is_connected
 	if is_connected and nearBeacon != null:
-		rope.points = [position, nearBeacon.position]
+		$Rope.glo = [Vector2.ZERO, nearBeacon.position]
 		
 		
 	
