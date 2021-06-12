@@ -14,7 +14,10 @@ var input_y : int
 var pitch : float = 0 # 3D sprite angle
 
 var input : bool
-var dead : bool = false
+var dead : bool 
+var attach_pressed : bool 
+var is_connected : bool
+var nearBeacon : RigidBody2D
 
 func _init():
 	input = true
@@ -28,7 +31,7 @@ func _ready():
 	#$HeliSprite.play()
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
-	pass
+	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
 func _process(delta):
@@ -37,10 +40,21 @@ func _process(delta):
 		input = true
 		input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		input_y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+		attach_pressed = Input.is_action_just_pressed("ui_accept")
 	else:
 		input = false
 		input_x = 0
 		input_y = 0
+	
+	if attach_pressed:
+		if !is_connected and nearBeacon != null:
+			is_connected = true
+	
+	$Rope.visible = is_connected
+	if is_connected and nearBeacon != null:
+		$Rope.glo = [Vector2.ZERO, nearBeacon.position]
+		
+		
 	
 	$RotorSound.pitch_scale += delta * (1.0 if input else -1.0)
 	$RotorSound.pitch_scale = clamp($RotorSound.pitch_scale, 0.25, 0.75)
@@ -96,3 +110,13 @@ func explode():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_GrabArea_body_entered(body):
+	if body.name == "Beacon":
+		nearBeacon = body
+
+
+func _on_GrabArea_body_exited(body):
+	if body == nearBeacon and !is_connected:
+		nearBeacon = null

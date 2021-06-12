@@ -20,3 +20,4 @@ cast_to = Vector2( 0, 133700 )
 z_index = -1
 width = 1.0
 default_color = Color( 0.752941, 0.109804, 0.109804, 1 )
+joint_mode = 2
