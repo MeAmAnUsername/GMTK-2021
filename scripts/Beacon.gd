@@ -14,4 +14,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(radius.get_overlapping_bodies())
+	pass
+
+
+func _on_Radius_body_entered(body: PhysicsBody2D) -> void:
+	if body.name == "Player":
+		body.incrementBeacon()
+	print("Enter", body.name)
+	pass # Replace with function body.
+
+
+func _on_Radius_body_exited(body: PhysicsBody2D) -> void:
+	if body.name == "Player":
+		body.decrementBeacon()
