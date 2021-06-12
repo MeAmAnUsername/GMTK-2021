@@ -27,6 +27,7 @@ func _process(delta):
 	
 	gravity_scale += delta * (3.0 if (input_y == 0) else -6.0)
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
+	
 
 func _physics_process(_delta):
 	pass
