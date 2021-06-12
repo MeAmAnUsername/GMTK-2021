@@ -41,3 +41,6 @@ position = Vector2( 445.636, 456.536 )
 [node name="Node2D2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 113.901, 572.163 )
 rotation = 1.34355
+
+[node name="Node2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 313.767, 45.4561 )

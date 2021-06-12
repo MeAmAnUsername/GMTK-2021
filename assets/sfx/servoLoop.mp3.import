@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/servoLoop.mp3-67103a65e788d1b7febfb870e8dee5ab.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/servoLoop.mp3"
+dest_files=[ "res://.import/servoLoop.mp3-67103a65e788d1b7febfb870e8dee5ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
