@@ -93,7 +93,6 @@ func _physics_process(_delta):
 	pass
 	
 func _integrate_forces(state):
-	var desired_rotation = input_x * TAU*0.25
 	applied_torque = input_x * (torque + torque_charge * 8000)
 	
 	# Try to stay upright
