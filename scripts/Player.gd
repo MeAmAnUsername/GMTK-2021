@@ -1,5 +1,7 @@
 extends RigidBody2D
 
+var beaconCount = 0
+
 var thrust = 1000
 var torque = 4000
 
@@ -20,6 +22,10 @@ func _process(delta):
 	# int(Input.is_action_pressed("ui_down")) - 
 	input_y = -int(Input.is_action_pressed("ui_up"))
 	
+	if beaconCount == 0:
+		input_x = 0
+		input_y = 0
+	
 	thrust_charge += delta * (1.25 if (input_y == 0) else -8.00)
 	torque_charge += delta * (2.50 if (input_x == 0) else -8.00)
 	thrust_charge = clamp(thrust_charge, 0, 1)
@@ -28,6 +34,11 @@ func _process(delta):
 	gravity_scale += delta * (3.0 if (input_y == 0) else -6.0)
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
 	
+func incrementBeacon():
+	beaconCount += 1
+
+func decrementBeacon():
+	beaconCount -= 1
 
 func _physics_process(_delta):
 	pass
