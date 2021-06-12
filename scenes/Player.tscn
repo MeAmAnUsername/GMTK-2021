@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/drone0.png" type="Texture" id=2]
 [ext_resource path="res://assets/drone1.png" type="Texture" id=3]
+[ext_resource path="res://assets/sfx/servoLoop.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -34,9 +35,14 @@ position = Vector2( 0.987236, -0.972079 )
 rotation = 1.57079
 scale = Vector2( 0.526996, 0.526996 )
 frames = SubResource( 1 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.26135, -0.840839 )
 scale = Vector2( 2, 1 )
 shape = SubResource( 2 )
+
+[node name="RotorSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 3.00001, 0.999981 )
+stream = ExtResource( 4 )
