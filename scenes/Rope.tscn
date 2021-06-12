@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Rope" type="Line2D"]
+position = Vector2( -7.62939e-06, 0.243225 )
+rotation = -1.57079
+default_color = Color( 0.470588, 0.372549, 0.439216, 0.827451 )

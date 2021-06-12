@@ -100,7 +100,7 @@ position = Vector2( 0.987236, -0.972079 )
 rotation = 1.57079
 scale = Vector2( 0.526996, 0.526996 )
 frames = SubResource( 1 )
-frame = 43
+frame = 44
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -118,11 +118,6 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
 shape = SubResource( 3 )
-
-[node name="Rope" type="Line2D" parent="."]
-position = Vector2( -7.62939e-06, 0.243225 )
-rotation = -1.57079
-default_color = Color( 0.470588, 0.372549, 0.439216, 0.827451 )
 
 [connection signal="body_entered" from="GrabArea" to="." method="_on_GrabArea_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
