@@ -58,7 +58,7 @@ func _process(delta):
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
 	
 	pitch += input_y * delta * 90 * 4
-	pitch = linear_velocity.y * 0.80
+	pitch = linear_velocity.y * 0.6 #sign(linear_velocity.y) * sqrt(abs(linear_velocity.y)) * 0.80
 	pitch = clamp(pitch, -90, 90)
 	
 	#pitch = 90
