@@ -52,7 +52,8 @@ func _process(delta):
 	
 	$Rope.visible = is_connected
 	if is_connected and nearBeacon != null:
-		$Rope.glo = [Vector2.ZERO, nearBeacon.position]
+		
+		$Rope.points = [Vector2.ZERO, position.distance_to(nearBeacon)]
 		
 		
 	
