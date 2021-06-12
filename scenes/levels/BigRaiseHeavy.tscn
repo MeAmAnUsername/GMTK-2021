@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/rock.png" type="Texture" id=5]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
 
 [node name="BigRaiseHeavy" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 40, -38.5 )
@@ -17,6 +20,7 @@ polygon = PoolVector2Array( -197.973, 524.373, 566.613, 524.373, 621.227, 305.92
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2( 36, -72 )
 scale = Vector2( 1.1875, 1.225 )
+texture = ExtResource( 5 )
 polygon = PoolVector2Array( -192, 528.98, 562.526, 528.98, 616.421, 320, 1209.26, 320, 1209.26, 685.714, -192, 685.714 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
@@ -35,7 +39,18 @@ scale = Vector2( 6, 1 )
 position = Vector2( 383.984, 241.047 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 584, 304 )
+position = Vector2( 445.636, 456.536 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 113.901, 572.163 )
+rotation = 1.34355
+
+[node name="Node2D3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 313.767, 41.4561 )
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -490, -210 )
+format = 1
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1280, -7.99997 )
