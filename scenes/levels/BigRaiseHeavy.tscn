@@ -8,6 +8,7 @@
 [node name="BigRaiseHeavy" type="Node2D"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2( 40, -38.5 )
@@ -38,5 +39,5 @@ position = Vector2( 383.984, 241.047 )
 position = Vector2( 445.636, 456.536 )
 
 [node name="Node2D2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 122.225, 553.136 )
+position = Vector2( 113.901, 572.163 )
 rotation = 1.34355
