@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/RopeSystem.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Level.tscn" type="PackedScene" id=3]
 
 [sub_resource type="OpenSimplexNoise" id=1]
@@ -42,8 +42,8 @@ position = Vector2( 707.339, 359.646 )
 scale = Vector2( 5.65268, 5.65268 )
 texture = SubResource( 2 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 132.45, 44.8985 )
+[node name="RopeSystem" parent="." instance=ExtResource( 2 )]
+position = Vector2( 184.941, 32.0173 )
 
 [node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( -24.9733, 103.461 )
+position = Vector2( -288.029, -179.956 )

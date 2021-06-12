@@ -10,9 +10,6 @@ var torque_charge = 0
 var input_x : int
 var input_y : int
 
-const pre_segment = preload("res://scenes/RopeSegment.tscn")
-var seg
-
 func _init():
 	angular_damp = 6.0
 	linear_damp = 0.6
@@ -30,16 +27,6 @@ func _process(delta):
 	
 	gravity_scale += delta * (3.0 if (input_y == 0) else -6.0)
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
-
-func _ready():
-	seg = pre_segment.instance()
-	get_parent().add_child(seg)
-	seg.position.y = position.y + 100
-	seg.position.x = position.x + 10
-	seg.get_node("PinJoint2D").set_node_a(self.get_path())
-	seg.get_node("PinJoint2D").set_node_b(seg.get_node("segment").get_path())
-	
-	
 
 func _physics_process(_delta):
 	pass
