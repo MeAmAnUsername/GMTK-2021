@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=3]
 
 [node name="BigRaiseHeavy" type="Node2D"]
 
@@ -27,3 +29,9 @@ scale = Vector2( 6, 1 )
 [node name="Platform3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 560, 344 )
 scale = Vector2( 6, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 383.984, 241.047 )
+
+[node name="Node2D" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488.636, 443.036 )
