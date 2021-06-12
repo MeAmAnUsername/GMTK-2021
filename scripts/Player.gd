@@ -12,15 +12,38 @@ var torque_charge = 0
 var input_x : int
 var input_y : int
 
+var in_range : bool
+
 func _init():
+	in_range = true
 	angular_damp = 6.0
 	linear_damp = 0.6
 	gravity_scale = 3.0
+	
+	#$RotorSound.play()
+
+func _ready():
+	# animation playing is disabled on node to prevent merge conflicts
+	#$HeliSprite.play()
+	#$RotorSound.play()
+	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
+	pass
 
 func _process(delta):
-	input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
-	# int(Input.is_action_pressed("ui_down")) - 
-	input_y = -int(Input.is_action_pressed("ui_up"))
+	
+	if beaconCount > 0:
+		input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+		input_y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
+	else:
+		input_x = 0
+		input_y = 0
+	
+	var any_input = input_x !=0 or input_y !=0
+	#$RotorSound.pitch_scale += delta * (1.0 if in_range else -1.0)
+	#$RotorSound.pitch_scale = clamp($RotorSound.pitch_scale, 0.5, 1.0)
+		
+	#$RotorSound.volume_db += delta * (1.0 if any_input else -1.0)
+	#$RotorSound.volume_db = clamp($RotorSound.volume_db, -100, -3)
 	
 	if beaconCount == 0:
 		input_x = 0
@@ -49,7 +72,7 @@ func _integrate_forces(state):
 	
 	# Try to stay upright
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
-	if (abs(angle_dif) < 1):
+	if beaconCount > 0 and (abs(angle_dif) < 1):
 		applied_torque += angle_dif * 3000
 	
 	var total_thrust = thrust_charge * 5000 + thrust
