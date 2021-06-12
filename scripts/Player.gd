@@ -55,11 +55,11 @@ func _process(delta):
 		if !is_connected and nearBeacon != null:
 			is_connected = true
 	
-	rope.visible = is_connected
-	if is_connected and nearBeacon != null:
+	#rope.visible = is_connected
+	#if is_connected and nearBeacon != null:
 		
-		rope_inst.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
-		print(rope_inst.points)
+	#	rope_inst.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+	#	print(rope_inst.points)
 		
 		
 	
