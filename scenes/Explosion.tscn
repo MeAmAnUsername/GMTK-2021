@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Particles/flame.png" type="Texture" id=1]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.271574, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.625, 0.625, 0.625, 1, 0, 0, 0, 1 )
+
+[node name="Explosion" type="CPUParticles2D"]
+material = SubResource( 1 )
+amount = 100
+speed_scale = 2.0
+explosiveness = 0.5
+local_coords = false
+texture = ExtResource( 1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+initial_velocity_random = 0.5
+angular_velocity = 45.0
+angular_velocity_random = 1.0
+damping = 6.16
+angle = 360.0
+angle_random = 1.0
+scale_amount = 0.5
+scale_amount_random = 0.1
+color_ramp = SubResource( 2 )

@@ -13,6 +13,7 @@ var input_x : int
 var input_y : int
 
 var in_range : bool
+var dead : bool = false
 
 func _init():
 	in_range = true
@@ -31,7 +32,7 @@ func _ready():
 
 func _process(delta):
 	
-	if beaconCount > 0:
+	if beaconCount > 0 and ! dead:
 		input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
 		input_y = int(Input.is_action_pressed("ui_down")) - int(Input.is_action_pressed("ui_up"))
 	else:
@@ -78,6 +79,11 @@ func _integrate_forces(state):
 	var total_thrust = thrust_charge * 5000 + thrust
 	applied_force = Vector2(0, total_thrust * input_y).rotated(rotation + TAU*0.25)
 
+
+func explode():
+	$Explosion.emitting = true
+	dead = true
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

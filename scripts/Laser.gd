@@ -10,9 +10,16 @@ func _ready():
 #	pass
 
 var point:Vector2
+var dist:float
+var other:Object
 
 func _process(delta):
 	if $LaserRayCast.is_colliding():
+		other = $LaserRayCast.get_collider()
 		point = $LaserRayCast.get_collision_point()
-		$LaserBeam.points = [position, point]
+		dist = point.distance_to(position)
+		$LaserBeam.points = [Vector2.ZERO, Vector2(0, -dist)]
+		if other.name == "Player":
+			other.explode()
+			
 		
