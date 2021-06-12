@@ -11,6 +11,7 @@ var thrust_charge = 0
 var torque_charge = 0
 var input_x : int
 var input_y : int
+var pitch : float = 0 # 3D sprite angle
 
 var input : bool
 var dead : bool = false
@@ -31,6 +32,7 @@ func _ready():
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
 func _process(delta):
+	
 	if beaconCount > 0 and !dead:
 		input = true
 		input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -54,6 +56,15 @@ func _process(delta):
 	
 	gravity_scale += delta * (3.0 if (input_y == 0) else -6.0)
 	gravity_scale = clamp(gravity_scale, 2.0, 5.0)
+	
+	pitch += input_y * delta * 90 * 4
+	pitch = linear_velocity.y * 0.80
+	pitch = clamp(pitch, -90, 90)
+	
+	#pitch = 90
+	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
+	#var rot_index = 8
+	$AnimatedSprite.frame = ($AnimatedSprite.frame % 4) + (4 * rot_index)
 	
 func incrementBeacon():
 	beaconCount += 1
