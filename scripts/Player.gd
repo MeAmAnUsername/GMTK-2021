@@ -107,6 +107,8 @@ func _physics_process(_delta):
 	
 func _integrate_forces(state):
 	if dead:
+		applied_torque = 0
+		applied_force = Vector2.ZERO
 		return
 	var desired_rotation = input_x * TAU*0.25
 	applied_torque = input_x * (torque + torque_charge * 8000)
@@ -126,7 +128,9 @@ func explode():
 		$Explosion/ExplosionSound.play()
 		dead = true
 		apply_torque_impulse(8000)
+		#gravity_scale = 40
 		$AnimatedSprite.modulate = Color.black
+		$SmokeEmitter.emitting = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
