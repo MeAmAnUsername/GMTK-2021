@@ -121,7 +121,7 @@ func _integrate_forces(state):
 	# Try to stay upright
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
 	if beaconCount > 0 and (abs(angle_dif) < 1):
-		applied_torque += angle_dif * 4000
+		applied_torque += angle_dif * 4500
 	
 	var total_thrust = thrust_charge * 5000 + thrust
 	applied_force = Vector2(0, total_thrust * input_y).rotated(rotation + TAU*0.25)

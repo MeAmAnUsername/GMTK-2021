@@ -1,66 +1,55 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/levels/BigRaiseHeavy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/GeneratePolygon.gd" type="Script" id=6]
 [ext_resource path="res://assets/rock.png" type="Texture" id=7]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Hud.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/LaserPuzzle.tscn" type="PackedScene" id=12]
 
 [node name="BigRaiseLight" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 10 )]
 
 [node name="LevelPropertyRegisterer" parent="." instance=ExtResource( 9 )]
 bottom = 640
 right = 1280
 
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 388.861, 547.643 )
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 40, -38.5 )
+position = Vector2( 40, -39.6091 )
 scale = Vector2( 1.17187, 1.17188 )
-polygon = PoolVector2Array( -197.973, 524.373, 566.613, 524.373, 621.227, 305.92, 1221.97, 305.92, 1221.97, 688.213, -197.973, 688.213 )
+polygon = PoolVector2Array( -197.973, 524.373, -2.47571, 459.246, 30.0908, 498.517, 85.6454, 528.21, 138.327, 546.409, 200.586, 558.861, 251.351, 542.578, 298.286, 532.041, 339.473, 536.831, 392.154, 564.608, 424.72, 576.102, 465.907, 575.144, 482.135, 554.238, 500.389, 536.831, 528.216, 526.931, 566.613, 524.373, 639.276, 496.602, 694.831, 443.921, 731.31, 391.252, 741.55, 309.332, 689.496, 293.972, 643.416, 277.759, 597.336, 256.426, 587.096, 232.532, 605.016, 229.119, 619.523, 225.706, 644.065, 223.62, 663.222, 238.945, 681.421, 264.807, 723.63, 274.345, 773.123, 276.905, 1020.65, 325.065, 1186.86, 293.101, 1244.4, 73.1903, 1081.43, 109.273, 915.881, 83.6729, 864.851, 113.283, 826.995, 110.866, 714.493, 85.3796, 496.039, 85.3796, 401.721, 68.9835, 297.815, 55.8931, 228.694, 62.7197, 180.304, 71.7263, 135.681, 106.24, 75.0937, 128.426, 18.7734, 142.079, -16.2134, 171.093, -32.4268, 233.386, -27.3068, 277.759, -13.4513, 308.277, 2.51371, 327.283, 20.4801, 338.345, 69.4145, 340.967, 99.824, 329.564, 126.432, 328.804, 130.233, 353.131, 116.549, 366.815, 82.3386, 373.657, 59.5315, 399.505, 20.7594, 414.71, 4.03418, 437.517, 6.82669, 468.051, -157.014, 485.971, -266.844, 47.8331, -46.6833, -104.06, 1304.49, -27.8152, 1277.64, 303.329, 1221.97, 688.213, -197.973, 688.213 )
 script = ExtResource( 6 )
 my_texture = ExtResource( 7 )
 
-[node name="Platform" parent="." instance=ExtResource( 1 )]
-position = Vector2( 496, 496 )
-scale = Vector2( 8, 1 )
-
 [node name="Platform2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 368, 416 )
-scale = Vector2( 6, 1 )
+position = Vector2( 313.002, 412.746 )
+rotation = 0.375231
+scale = Vector2( 17.7331, 1.17325 )
 
 [node name="Platform3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 560, 344 )
-scale = Vector2( 6, 1 )
+position = Vector2( 642.408, 252.674 )
+rotation = -0.146155
+scale = Vector2( 14.4226, 1 )
 
 [node name="Goal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1256, -40 )
+position = Vector2( 1368.18, 20.4089 )
 scale = Vector2( 10, 40 )
-change_to = ExtResource( 4 )
+change_to = ExtResource( 12 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 176.54, 133.076 )
+position = Vector2( 394.674, 142.626 )
 rotation = -1.57079
-
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 182.481, 548.112 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
 
 [node name="Boundaries" type="Node2D" parent="."]
-
-[node name="Left" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( -128, 344 )
-scale = Vector2( 16, 64 )
-
-[node name="Right" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 1408, 344 )
-scale = Vector2( 16, 64 )
-
-[node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 632, -136 )
-scale = Vector2( 128, 16 )

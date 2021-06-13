@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/Hud.tscn" type="PackedScene" id=8]
 
 [node name="SmallRaise" type="Node2D"]
 
@@ -23,7 +24,7 @@ position = Vector2( 1024, 600 )
 scale = Vector2( 48, 5 )
 
 [node name="Goal" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1256, 216 )
+position = Vector2( 1314.73, 241.398 )
 scale = Vector2( 10, 40 )
 change_to = ExtResource( 4 )
 
@@ -35,16 +36,18 @@ position = Vector2( 536, 592 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
+[node name="CanvasLayer" parent="." instance=ExtResource( 8 )]
+
 [node name="Boundaries" type="Node2D" parent="."]
 
 [node name="Left" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( -128, 344 )
+position = Vector2( -99.4268, 340.825 )
 scale = Vector2( 16, 64 )
 
 [node name="Right" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 1408, 344 )
-scale = Vector2( 16, 64 )
+position = Vector2( 1360.38, 191.61 )
+scale = Vector2( 22.5841, 25.6171 )
 
 [node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 632, -136 )
+position = Vector2( 630.413, -96.315 )
 scale = Vector2( 128, 16 )

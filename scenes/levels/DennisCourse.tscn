@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/rock.png" type="Texture" id=7]
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/levels/EndScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/JeroenCourse.tscn" type="PackedScene" id=10]
 
 [node name="BigRaiseHeavy" type="Node2D"]
 position = Vector2( 0, -1 )

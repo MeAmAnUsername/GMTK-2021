@@ -24,7 +24,7 @@ position = Vector2( 640, 688 )
 scale = Vector2( 96, 6 )
 
 [node name="Goal" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1256, 280 )
+position = Vector2( 1347.92, 277.172 )
 scale = Vector2( 10, 40 )
 change_to = ExtResource( 2 )
 
@@ -38,13 +38,13 @@ position = Vector2( 481.646, 610.324 )
 [node name="Boundaries" type="Node2D" parent="."]
 
 [node name="Left" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( -128, 344 )
+position = Vector2( -105.373, 336.929 )
 scale = Vector2( 16, 64 )
 
 [node name="Right" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 1408, 344 )
-scale = Vector2( 16, 64 )
+position = Vector2( 1396.69, 195.508 )
+scale = Vector2( 23.6961, 28.6305 )
 
 [node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
-position = Vector2( 632, -136 )
+position = Vector2( 633.414, -106.302 )
 scale = Vector2( 128, 16 )

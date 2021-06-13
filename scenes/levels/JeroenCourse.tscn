@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/GeneratePolygon.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://assets/rock.png" type="Texture" id=7]
 [ext_resource path="res://scenes/RotatingLaser.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/levels/EndScreen.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=11]
 
 [node name="BigRaiseHeavy2" type="Node2D"]
 position = Vector2( 0, -1 )
@@ -23,34 +25,28 @@ right = 1800
 position = Vector2( -3632.26, -836.117 )
 
 [node name="Beacon2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1339.65, 88.2829 )
+position = Vector2( -1339.65, 86.7846 )
 rotation = 0.00261562
-mass = 207.71
 
 [node name="Beacon3" parent="." instance=ExtResource( 3 )]
 position = Vector2( -1308.73, 534.695 )
 rotation = 0.00261562
-mass = 59.67
 
 [node name="Beacon4" parent="." instance=ExtResource( 3 )]
 position = Vector2( -453.984, -209.078 )
 rotation = 0.00261562
-mass = 314.8
 
 [node name="Beacon5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 319.229, 502.748 )
 rotation = 0.00261562
-mass = 111.33
 
 [node name="Beacon7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1327.58, 239.654 )
 rotation = 0.00261562
-mass = 111.33
 
 [node name="Beacon6" parent="." instance=ExtResource( 3 )]
 position = Vector2( 821.933, -350.402 )
 rotation = 0.00261562
-mass = 111.33
 
 [node name="Node2D6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 395.037, 347.336 )
@@ -60,43 +56,29 @@ rotation = 1.35763
 position = Vector2( -1238.08, 167.389 )
 z_index = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
-position = Vector2( -1038.16, -479.559 )
-scale = Vector2( 1.1875, 1.23017 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 771.301, 347.046, 788.133, 353.228, 826.415, 349.122, 896.665, 351.642, 969.79, 364.686, 1000.79, 394.61, 1027.81, 436.81, 1030.2, 479.777, 899.049, 452.155, 784.592, 477.475, 705.108, 479.777, 721.005, 403.817 )
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
 polygon = PoolVector2Array( 771.301, 347.046, 788.133, 353.228, 826.415, 349.122, 896.665, 351.642, 969.79, 364.686, 1000.79, 394.61, 1027.81, 436.81, 1030.2, 479.777, 899.049, 452.155, 784.592, 477.475, 705.108, 479.777, 721.005, 403.817 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+my_texture = ExtResource( 7 )
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2( -1235.08, -75.3367 )
 z_index = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
-position = Vector2( -1038.16, -479.559 )
-scale = Vector2( 1.1875, 1.23017 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 771.95, 388.698, 789.218, 370.879, 806.487, 379.501, 837.451, 386.974, 953.565, 369.155, 1004.55, 347.588, 1029.78, 357.658, 1033.95, 386.399, 1001.2, 405.367, 937.487, 412.84, 827.923, 419.163, 773.736, 409.966 )
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
-polygon = PoolVector2Array( 771.95, 388.698, 789.218, 370.879, 806.487, 379.501, 837.451, 386.974, 953.565, 369.155, 1004.55, 347.588, 1029.78, 357.658, 1033.95, 386.399, 1001.2, 405.367, 937.487, 412.84, 827.923, 419.163, 773.736, 409.966 )
+polygon = PoolVector2Array( 771.95, 388.698, 776.707, 354.5, 795.612, 348.113, 836.257, 368.187, 953.565, 369.155, 1004.55, 347.588, 1029.78, 357.658, 1033.95, 386.399, 1018.69, 419.887, 981.926, 432.791, 827.923, 419.163, 773.736, 409.966 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+my_texture = ExtResource( 7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -10.0908 )
@@ -116,37 +98,29 @@ my_texture = ExtResource( 7 )
 position = Vector2( -972.076, -884.623 )
 z_index = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
-position = Vector2( 36, -73.0022 )
-scale = Vector2( 1.1875, 1.23017 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
 position = Vector2( 36, -73.0022 )
 scale = Vector2( 1.1875, 1.23017 )
 polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+my_texture = ExtResource( 7 )
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="."]
 position = Vector2( -972.076, -884.623 )
 z_index = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
-position = Vector2( 36, -73.0022 )
-scale = Vector2( 1.1875, 1.23017 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
 position = Vector2( 36, -73.0022 )
 scale = Vector2( 1.1875, 1.23017 )
-polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
+polygon = PoolVector2Array( -758.407, 1008.53, -769.209, 189.719, 2338.54, 193.993, 2341.55, 321.992, 1185.35, 374.439, 814.951, 349.886, 484.297, 317.661, 264.92, 362.162, 37.5956, 385.181, -235.83, 356.024, -340.554, 479.87, -429.677, 536.2, -475.299, 576.143, -558.056, 616.086, -571.849, 640.667, -578.352, 1014.35, -603.334, 1111.92, -700.004, 1113 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+my_texture = ExtResource( 7 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1658.09, 521.92 )
@@ -161,6 +135,7 @@ format = 1
 [node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1276.72, -448.591 )
 scale = Vector2( 10, 9.6 )
+change_to = ExtResource( 10 )
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1593.24, -2.87622 )
@@ -177,7 +152,7 @@ low = 20.0
 high = 100.0
 
 [node name="Node2D5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 237.43, -163.166 )
+position = Vector2( 225.416, -156.492 )
 low = 180.0
 high = 270.0
 
@@ -190,38 +165,31 @@ high = 400.0
 position = Vector2( -509.571, 527.402 )
 z_index = 1
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6"]
-position = Vector2( -1038.16, -479.559 )
-scale = Vector2( 1.1875, 1.23017 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( 794.653, 73.344, 749.179, -35.5844, 784.547, -131.506, 760.969, -196.538, 806.442, -209.545, 845.179, -181.906, 914.232, -180.28, 976.547, -217.674, 1022.02, -207.919, 1038.86, -159.145, 996.758, -24.2038, 917.6, 138.376, 929.39, 218.04, 1010.23, 287.949, 1027.07, 383.871, 1005.11, 427.342, 770.177, 426.257 )
-__meta__ = {
-"_editor_description_": ""
-}
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
-polygon = PoolVector2Array( 794.653, 73.344, 749.179, -35.5844, 784.547, -131.506, 760.969, -196.538, 806.442, -209.545, 845.179, -181.906, 914.232, -180.28, 976.547, -217.674, 1022.02, -207.919, 1038.86, -159.145, 996.758, -24.2038, 917.6, 138.376, 929.39, 218.04, 1010.23, 287.949, 1027.07, 383.871, 1005.11, 427.342, 770.177, 426.257 )
+polygon = PoolVector2Array( 794.653, 73.344, 761.037, 19.6371, 749.179, -35.5844, 784.547, -131.506, 760.969, -196.538, 806.442, -209.545, 845.179, -181.906, 914.232, -180.28, 976.547, -217.674, 1022.02, -207.919, 1038.86, -159.145, 996.758, -24.2038, 917.6, 138.376, 929.39, 218.04, 975.321, 250.613, 1010.23, 287.949, 1027.07, 383.871, 1005.11, 427.342, 770.177, 426.257, 773.064, 361.58, 771.173, 327.819, 756.995, 305.008, 722.021, 298.621, 733.364, 266.686, 764.557, 252.086, 783.461, 213.764, 804.826, 187.907, 793.037, 127.752 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
+my_texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( 307.338, -200.719 )
-polygon = PoolVector2Array( 32.7782, -5.5061, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
+polygon = PoolVector2Array( -6.18115, 20.2154, 41.9021, -5.24045, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 48.9732, 43.5499, 14.325, 44.9641 )
 script = ExtResource( 1 )
 my_texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( 206.929, -458.106 )
-polygon = PoolVector2Array( 32.7782, -5.5061, 82.9924, -26.5659, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
+polygon = PoolVector2Array( 32.7782, -5.5061, 51.0945, -25.7464, 82.9924, -26.5659, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
 script = ExtResource( 1 )
 my_texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( 460.074, -575.485 )
-polygon = PoolVector2Array( 32.7782, -5.5061, 82.9924, -26.5659, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
+polygon = PoolVector2Array( 32.7782, -5.5061, 59.9199, -38.1094, 98.8107, -45.1805, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
 script = ExtResource( 1 )
 my_texture = ExtResource( 7 )
 
@@ -239,6 +207,11 @@ my_texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( 770.744, -222.596 )
-polygon = PoolVector2Array( 32.7782, -5.5061, 83.6023, -231.363, 83.6023, -500.754, 29.7241, -646.674, 166.664, -660.144, 236.257, -590.551, 225.032, -377.283, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
+polygon = PoolVector2Array( 32.7782, -5.5061, 83.6023, -231.363, 83.6023, -500.754, 29.7241, -646.674, 53.4566, -660.72, 112.516, -728.229, 137.971, -835.709, 174.741, -731.057, 236.257, -590.551, 225.032, -377.283, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
 script = ExtResource( 1 )
 my_texture = ExtResource( 7 )
+
+[node name="Platform" parent="." instance=ExtResource( 11 )]
+position = Vector2( -704.164, -175.833 )
+rotation = -0.175328
+scale = Vector2( 14.5638, 0.667245 )

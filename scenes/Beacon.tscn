@@ -38,7 +38,7 @@ radius = 22.5842
 
 [node name="Beacon" type="RigidBody2D"]
 collision_layer = 9
-mass = 4.0
+mass = 3.0
 contacts_reported = 4
 contact_monitor = true
 linear_damp = 0.1
