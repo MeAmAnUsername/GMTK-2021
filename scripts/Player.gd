@@ -43,6 +43,9 @@ func _ready():
 
 func _process(delta):
 	
+	if Input.is_action_just_pressed("ui_restart"):
+		Common.assert_OK(get_tree().reload_current_scene(), "Cannot restart level");
+
 	if beaconCount > 0 and !dead:
 		input = true
 		input_x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -62,11 +65,12 @@ func _process(delta):
 			$RopeSpring.node_b = ""
 			is_connected = false
 			nearBeacon = null
-			
-	
+
+
 	rope.visible = is_connected
 	if is_connected and nearBeacon != null:
 		#rope.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+		nearBeacon.modulate = Color.white
 		rope.position = position
 		rope.points = [Vector2.ZERO, nearBeacon.position-self.position ]
 		print(rope.points)
@@ -91,7 +95,7 @@ func _process(delta):
 	pitch = clamp(pitch, -90, 90)
 	
 	#pitch = 90
-	
+
 	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
 	#var rot_index = 8
 	$AnimatedSprite.frame = ($AnimatedSprite.frame % 4) + (4 * rot_index)
@@ -110,10 +114,9 @@ func _integrate_forces(state):
 		applied_torque = 0
 		applied_force = Vector2.ZERO
 		return
-	var desired_rotation = input_x * TAU*0.25
 	applied_torque = input_x * (torque + torque_charge * 8000)
 	
-	# Try to stay upright	
+	# Try to stay upright
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
 	if beaconCount > 0 and (abs(angle_dif) < 1):
 		applied_torque += angle_dif * 4000
@@ -139,8 +142,10 @@ func explode():
 func _on_GrabArea_body_entered(body):
 	if !is_connected:
 		nearBeacon = body
+		body.modulate = Color.bisque
 
 func _on_GrabArea_body_exited(body):
+	body.modulate = Color.white
 	if body == nearBeacon and !is_connected:
 		nearBeacon = null
 
