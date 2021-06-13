@@ -23,4 +23,3 @@ func _process(delta):
 	angle += dir
 	if angle > high or angle < low:
 		dir = -dir
-	print(angle)

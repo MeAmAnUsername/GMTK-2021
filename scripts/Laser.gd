@@ -18,9 +18,10 @@ func _process(delta):
 	$LaserBeam.width -= ($LaserBeam.width - rng.randf_range(0, 10))*.05
 	$LaserBeam.default_color.a = $LaserBeam.width / 7
 	if $LaserRayCast.is_colliding():
-		other = $LaserRayCast.get_collider()
+		other = $LaserRayCast.get_collider()		
 		point = $LaserRayCast.get_collision_point()
 		dist = point.distance_to(position)
+		print(point, " ", dist)
 		$LaserBeam.points = [Vector2.ZERO, Vector2(0, -dist)]
 		if other.name == "Player":
 			other.explode()

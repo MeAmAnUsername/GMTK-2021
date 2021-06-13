@@ -35,9 +35,8 @@ func _ready():
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
 	rope = rope_pre.instance()
-	#get_tree().get_root().add_child(rope)
 	get_tree().get_root().call_deferred("add_child",rope)
-	#self.add_child(rope)
+	$AnimatedSprite.play()
 	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
@@ -111,6 +110,8 @@ func _physics_process(_delta):
 	
 func _integrate_forces(state):
 	if dead:
+		applied_torque = 0
+		applied_force = Vector2.ZERO
 		return
 	applied_torque = input_x * (torque + torque_charge * 8000)
 	
@@ -129,7 +130,9 @@ func explode():
 		$Explosion/ExplosionSound.play()
 		dead = true
 		apply_torque_impulse(8000)
+		#gravity_scale = 40
 		$AnimatedSprite.modulate = Color.black
+		$SmokeEmitter.emitting = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

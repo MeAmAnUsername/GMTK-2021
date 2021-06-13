@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="GMTK-2021"
-run/main_scene="res://scenes/levels/BigRaiseHeavy.tscn"
+run/main_scene="res://scenes/levels/JeroenCourse.tscn"
 config/icon="res://icon.png"
 
 [autoload]
