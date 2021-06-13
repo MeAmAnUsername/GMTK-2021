@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rock.png" type="Texture" id=7]
 
 [node name="BigRaiseHeavy" type="Node2D"]
 position = Vector2( 0, -1 )
@@ -21,6 +22,7 @@ polygon = PoolVector2Array( -197.973, 524.373, 566.613, 524.373, 621.227, 305.92
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2( 36, -72 )
 scale = Vector2( 1.1875, 1.225 )
+texture = ExtResource( 7 )
 polygon = PoolVector2Array( -192, 528.98, 562.526, 528.98, 616.421, 320, 1209.26, 320, 1209.26, 685.714, -192, 685.714 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
@@ -37,6 +39,7 @@ scale = Vector2( 6, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 383.984, 241.047 )
+rotation = -1.57079
 
 [node name="ParallaxLayer" parent="." instance=ExtResource( 6 )]
 

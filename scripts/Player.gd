@@ -68,7 +68,7 @@ func _process(delta):
 	if is_connected and nearBeacon != null:
 		#rope.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
 		rope.position = position
-		rope.points = [Vector2.ZERO, nearBeacon.position ]
+		rope.points = [Vector2.ZERO, nearBeacon.position-self.position ]
 		print(rope.points)
 	
 	$RotorSound.pitch_scale += delta * (1.0 if input else -1.0)
