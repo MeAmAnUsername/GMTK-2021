@@ -5,18 +5,22 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
-export (int) var low = 0
-export (int) var high = 100
+export (float) var low = 270
+export (float) var high = 280
 
-var dir:int = 2
-var angle:int = low
+var dir:float = 0.2
+var angle:float
+
+func _ready():
+	rotate(low / 180 * PI)
+	angle = low
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	rotate(angle / 180 * PI)
+	rotate(dir / 180 * PI)
 	angle += dir
 	if angle > high or angle < low:
 		dir = -dir
-	
+	print(angle)
