@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/GeneratePolygon.gd" type="Script" id=4]
+[ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rock.png" type="Texture" id=7]
+
+[node name="BigRaiseHeavy" type="Node2D"]
+position = Vector2( 0, -1 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+z_index = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 2197.11, 89.1913 )
+polygon = PoolVector2Array( -1977.77, 1749.32, 171.56, 1722.42, 1601.51, 1627.46, 1289.86, 1981.07, 720.507, 1975.07, 942.257, 2544.43, 185.015, 1961.23, -2428.49, 1951.14, -2378.04, -127.556, 2671.12, -95.3765, 2671.12, 81.5436, -1964.32, 309.71 )
+script = ExtResource( 4 )
+my_texture = ExtResource( 7 )
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2599.67, 1619.22 )
+scale = Vector2( 8, 1 )
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2341.13, 1485.16 )
+scale = Vector2( 6, 1 )
+
+[node name="Platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2820.14, 1547.74 )
+scale = Vector2( 6, 1 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 469.34, 1112.16 )
+rotation = -1.57079
+
+[node name="ParallaxLayer" parent="." instance=ExtResource( 6 )]
+
+[node name="Goal" parent="." instance=ExtResource( 5 )]
+position = Vector2( 8485.54, 2204.44 )
+scale = Vector2( 10, 40 )
+
+[node name="Beacon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1699.91, 1657.29 )
+
+[node name="Beacon2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 597.797, 1791.4 )
+rotation = 0.00261562
