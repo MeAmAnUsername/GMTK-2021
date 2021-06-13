@@ -34,3 +34,17 @@ position = Vector2( 208, 400 )
 position = Vector2( 536, 592 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="Left" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( -128, 344 )
+scale = Vector2( 16, 64 )
+
+[node name="Right" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( 1408, 344 )
+scale = Vector2( 16, 64 )
+
+[node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( 632, -136 )
+scale = Vector2( 128, 16 )
