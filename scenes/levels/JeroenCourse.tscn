@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/rock.png" type="Texture" id=7]
@@ -10,6 +11,12 @@
 
 [node name="BigRaiseHeavy" type="Node2D"]
 position = Vector2( 0, -1 )
+
+[node name="LevelPropertyRegisterer" parent="." instance=ExtResource( 4 )]
+top = -550
+bottom = 700
+left = -1800
+right = 1800
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2( -1238.08, 167.389 )
