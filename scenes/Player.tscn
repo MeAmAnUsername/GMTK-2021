@@ -122,6 +122,7 @@ shape = SubResource( 3 )
 
 [node name="RopeSpring" type="DampedSpringJoint2D" parent="."]
 node_a = NodePath("..")
+disable_collision = false
 
 [node name="ImpactSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 68 )
