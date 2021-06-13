@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/beacon.png" type="Texture" id=1]
 [ext_resource path="res://scripts/Beacon.gd" type="Script" id=2]
@@ -19,6 +19,8 @@
 [ext_resource path="res://assets/ball/ball0015.png" type="Texture" id=17]
 [ext_resource path="res://assets/ball/ball0011.png" type="Texture" id=18]
 [ext_resource path="res://assets/ball/ball0005.png" type="Texture" id=19]
+[ext_resource path="res://assets/sfx/rolling.ogg" type="AudioStream" id=20]
+[ext_resource path="res://assets/sfx/ballImpact.wav" type="AudioStream" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 393.004
@@ -37,6 +39,9 @@ radius = 22.5842
 [node name="Beacon" type="RigidBody2D"]
 collision_layer = 9
 mass = 4.0
+contacts_reported = 4
+contact_monitor = true
+linear_damp = 0.1
 script = ExtResource( 2 )
 
 [node name="Radius" type="Area2D" parent="."]
@@ -63,5 +68,14 @@ frames = SubResource( 2 )
 rotation = 1.57079
 shape = SubResource( 3 )
 
+[node name="ImpactSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+
+[node name="RollingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+pitch_scale = 2.0
+
+[connection signal="body_entered" from="." to="." method="_on_Beacon_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Beacon_body_exited"]
 [connection signal="body_entered" from="Radius" to="." method="_on_Radius_body_entered"]
 [connection signal="body_exited" from="Radius" to="." method="_on_Radius_body_exited"]
