@@ -67,6 +67,7 @@ func _process(delta):
 	rope.visible = is_connected
 	if is_connected and nearBeacon != null:
 		#rope.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+		nearBeacon.modulate = Color.white
 		rope.position = position
 		rope.points = [Vector2.ZERO, nearBeacon.position-self.position ]
 		print(rope.points)
@@ -135,8 +136,10 @@ func explode():
 func _on_GrabArea_body_entered(body):
 	if !is_connected:
 		nearBeacon = body
+		body.modulate = Color.bisque
 
 func _on_GrabArea_body_exited(body):
+	body.modulate = Color.white
 	if body == nearBeacon and !is_connected:
 		nearBeacon = null
 
