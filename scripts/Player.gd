@@ -60,10 +60,14 @@ func _process(delta):
 		if !is_connected and nearBeacon != null:
 			is_connected = true
 			$RopeSpring.node_b = NodePath(nearBeacon.get_path())
+			$HoldSound.play()
+			$GrabSound.play()
 		elif is_connected and nearBeacon != null:
 			$RopeSpring.node_b = ""
 			is_connected = false
 			nearBeacon = null
+			$HoldSound.stop()
+			$ReleaseSound.play()
 
 
 	rope.visible = is_connected and !dead
