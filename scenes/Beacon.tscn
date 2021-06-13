@@ -36,7 +36,7 @@ radius = 22.5842
 
 [node name="Beacon" type="RigidBody2D"]
 collision_layer = 9
-mass = 5.0
+mass = 4.0
 script = ExtResource( 2 )
 
 [node name="Radius" type="Area2D" parent="."]

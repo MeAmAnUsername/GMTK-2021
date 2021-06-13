@@ -113,6 +113,7 @@ shape = SubResource( 2 )
 
 [node name="RotorSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
+volume_db = -80.0
 
 [node name="GrabArea" type="Area2D" parent="."]
 collision_layer = 0
