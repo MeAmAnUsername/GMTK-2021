@@ -1,22 +1,60 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/GeneratePolygon.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/rock.png" type="Texture" id=7]
 [ext_resource path="res://scenes/RotatingLaser.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=9]
 
 [node name="BigRaiseHeavy2" type="Node2D"]
 position = Vector2( 0, -1 )
 
-[node name="LevelPropertyRegisterer" parent="." instance=ExtResource( 4 )]
+[node name="LevelPropertyRegisterer" parent="." instance=ExtResource( 9 )]
 top = -550
 bottom = 700
 left = -1800
 right = 1800
+
+[node name="Beacon" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3632.26, -836.117 )
+
+[node name="Beacon2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1339.65, 88.2829 )
+rotation = 0.00261562
+mass = 207.71
+
+[node name="Beacon3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1308.73, 534.695 )
+rotation = 0.00261562
+mass = 59.67
+
+[node name="Beacon4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -453.984, -209.078 )
+rotation = 0.00261562
+mass = 314.8
+
+[node name="Beacon5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 319.229, 502.748 )
+rotation = 0.00261562
+mass = 111.33
+
+[node name="Beacon7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1327.58, 239.654 )
+rotation = 0.00261562
+mass = 111.33
+
+[node name="Beacon6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 821.933, -350.402 )
+rotation = 0.00261562
+mass = 111.33
+
+[node name="Node2D6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 395.037, 347.336 )
+rotation = 1.35763
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
 position = Vector2( -1238.08, 167.389 )
@@ -65,18 +103,14 @@ position = Vector2( 0, -10.0908 )
 z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-position = Vector2( 36, -72 )
+position = Vector2( 33.6216, -72 )
 scale = Vector2( 1.1875, 1.225 )
-polygon = PoolVector2Array( -1574.51, 303.832, -1549.05, 304.86, -1551.17, 529.075, 1343.72, 531.891, 1361.6, -256.296, 1521.84, -259.965, 1516.5, 669.18, -1569.42, 670.551 )
+polygon = PoolVector2Array( -1574.51, 303.832, -1549.05, 304.86, -1551.17, 529.075, -318.986, 534.924, -258.492, 523.929, -145.064, 530.343, -27.8552, 514.766, 217.412, 486.793, 241.988, 498.705, 262.783, 487.709, 528.886, 533.092, 729.275, 522.096, 1058.47, 276.716, 1084.67, 290.57, 1119.21, 274.407, 1294.28, 186.668, 1313.87, -55.4242, 1140.93, -104.793, 849.16, -27.6545, 740.94, 102.966, 647.573, 42.2839, 631.658, -27.6545, 642.2, -207.494, 664.647, -191.404, 685.677, -207.907, 714.415, -142.847, 901.149, -195.301, 1361.6, -256.296, 1521.84, -259.965, 1516.5, 669.18, -1569.42, 670.551 )
+script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": ""
 }
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-position = Vector2( 36, -72 )
-scale = Vector2( 1.1875, 1.225 )
-texture = ExtResource( 7 )
-polygon = PoolVector2Array( -1571.33, 529.075, 1343.72, 531.891, 1361.6, -256.296, 1521.84, -259.965, 1516.5, 669.18, -1569.42, 670.551 )
+my_texture = ExtResource( 7 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( -972.076, -884.623 )
@@ -117,6 +151,7 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -113.581, -102.169 )
 rotation = -1.57079
+script = null
 
 [node name="ParallaxLayer" parent="." instance=ExtResource( 6 )]
 
@@ -125,28 +160,8 @@ position = Vector2( -490, -210 )
 format = 1
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1607.85, -460.577 )
+position = Vector2( 1276.72, -448.591 )
 scale = Vector2( 10, 9.6 )
-
-[node name="Beacon" parent="." instance=ExtResource( 3 )]
-position = Vector2( -3632.26, -836.117 )
-
-[node name="Beacon2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1339.65, 88.2829 )
-rotation = 0.00261562
-
-[node name="Beacon3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1308.73, 534.695 )
-rotation = 0.00261562
-
-[node name="Beacon4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -453.984, -209.078 )
-rotation = 0.00261562
-
-[node name="Beacon5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 307.109, 544.88 )
-rotation = 0.00261562
-mass = 111.33
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1593.24, -2.87622 )
@@ -214,5 +229,17 @@ my_texture = ExtResource( 7 )
 [node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D6"]
 position = Vector2( 535.027, -377.495 )
 polygon = PoolVector2Array( 32.7782, -5.5061, 82.9924, -26.5659, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
+script = ExtResource( 1 )
+my_texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="StaticBody2D6"]
+position = Vector2( 1727.03, -409.495 )
+polygon = PoolVector2Array( 53.8683, -6.98872, 84.5928, -33.4753, 142.863, -39.8321, 168.29, 23.7357, 111.079, 33.2709, 59.1655, 48.1033, 22.0845, 20.5573 )
+script = ExtResource( 1 )
+my_texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="StaticBody2D6"]
+position = Vector2( 770.744, -222.596 )
+polygon = PoolVector2Array( 32.7782, -5.5061, 83.6023, -231.363, 83.6023, -500.754, 29.7241, -646.674, 166.664, -660.144, 236.257, -590.551, 225.032, -377.283, 128.945, -24.598, 155.108, 25.6066, 102.075, 53.1837, 56.1127, 34.0919 )
 script = ExtResource( 1 )
 my_texture = ExtResource( 7 )
