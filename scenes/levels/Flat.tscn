@@ -29,8 +29,22 @@ scale = Vector2( 10, 40 )
 change_to = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 463.991, -24.2236 )
+position = Vector2( 376, 96 )
 rotation = -1.57079
 
 [node name="Node2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 481.646, 610.324 )
+
+[node name="Boundaries" type="Node2D" parent="."]
+
+[node name="Left" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( -128, 344 )
+scale = Vector2( 16, 64 )
+
+[node name="Right" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( 1408, 344 )
+scale = Vector2( 16, 64 )
+
+[node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
+position = Vector2( 632, -136 )
+scale = Vector2( 128, 16 )

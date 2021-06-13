@@ -99,6 +99,8 @@ script = ExtResource( 1 )
 position = Vector2( 0.243225, 6.1033e-06 )
 rotation = 1.57079
 current = true
+smoothing_enabled = true
+smoothing_speed = 3.0
 script = ExtResource( 70 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

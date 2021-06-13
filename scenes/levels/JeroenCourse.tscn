@@ -26,7 +26,7 @@ z_index = 1
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
 texture = ExtResource( 7 )
-polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+polygon = PoolVector2Array( 771.301, 347.046, 788.133, 353.228, 826.415, 349.122, 896.665, 351.642, 969.79, 364.686, 1000.79, 394.61, 1027.81, 436.81, 1030.2, 479.777, 899.049, 452.155, 784.592, 477.475, 705.108, 479.777, 721.005, 403.817 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -34,7 +34,7 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
-polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+polygon = PoolVector2Array( 771.301, 347.046, 788.133, 353.228, 826.415, 349.122, 896.665, 351.642, 969.79, 364.686, 1000.79, 394.61, 1027.81, 436.81, 1030.2, 479.777, 899.049, 452.155, 784.592, 477.475, 705.108, 479.777, 721.005, 403.817 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -47,7 +47,7 @@ z_index = 1
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
 texture = ExtResource( 7 )
-polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+polygon = PoolVector2Array( 771.95, 388.698, 789.218, 370.879, 806.487, 379.501, 837.451, 386.974, 953.565, 369.155, 1004.55, 347.588, 1029.78, 357.658, 1033.95, 386.399, 1001.2, 405.367, 937.487, 412.84, 827.923, 419.163, 773.736, 409.966 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -55,7 +55,7 @@ __meta__ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
 position = Vector2( -1038.16, -479.559 )
 scale = Vector2( 1.1875, 1.23017 )
-polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+polygon = PoolVector2Array( 771.95, 388.698, 789.218, 370.879, 806.487, 379.501, 837.451, 386.974, 953.565, 369.155, 1004.55, 347.588, 1029.78, 357.658, 1033.95, 386.399, 1001.2, 405.367, 937.487, 412.84, 827.923, 419.163, 773.736, 409.966 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -96,6 +96,24 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2( -972.076, -884.623 )
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D5"]
+position = Vector2( 36, -73.0022 )
+scale = Vector2( 1.1875, 1.23017 )
+texture = ExtResource( 7 )
+polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D5"]
+position = Vector2( 36, -73.0022 )
+scale = Vector2( 1.1875, 1.23017 )
+polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Platform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 496, 496 )
 scale = Vector2( 8, 1 )
@@ -126,14 +144,40 @@ scale = Vector2( 10, 9.6 )
 position = Vector2( -3632.26, -836.117 )
 
 [node name="Beacon2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1340.59, 88.2829 )
+position = Vector2( -1339.65, 88.2829 )
 rotation = 0.00261562
 
 [node name="Beacon3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -1282.35, 555.937 )
+position = Vector2( -1184.18, 635.222 )
 rotation = 0.00261562
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( -1593.24, -2.87622 )
 low = 60.0
 high = 120.0
+
+[node name="Node2D2" parent="." instance=ExtResource( 8 )]
+position = Vector2( -502.204, -191.45 )
+low = 60.0
+high = 120.0
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2( -509.571, 527.402 )
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D6"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+texture = ExtResource( 7 )
+polygon = PoolVector2Array( 794.653, 73.344, 749.179, -35.5844, 784.547, -131.506, 760.969, -196.538, 806.442, -209.545, 845.179, -181.906, 914.232, -180.28, 976.547, -217.674, 1022.02, -207.919, 1038.86, -159.145, 996.758, -24.2038, 917.6, 138.376, 929.39, 218.04, 1010.23, 287.949, 1027.07, 383.871, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D6"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+polygon = PoolVector2Array( 794.653, 73.344, 749.179, -35.5844, 784.547, -131.506, 760.969, -196.538, 806.442, -209.545, 845.179, -181.906, 914.232, -180.28, 976.547, -217.674, 1022.02, -207.919, 1038.86, -159.145, 996.758, -24.2038, 917.6, 138.376, 929.39, 218.04, 1010.23, 287.949, 1027.07, 383.871, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
