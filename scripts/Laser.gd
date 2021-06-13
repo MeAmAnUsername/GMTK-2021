@@ -20,8 +20,7 @@ func _process(delta):
 	if $LaserRayCast.is_colliding():
 		other = $LaserRayCast.get_collider()		
 		point = $LaserRayCast.get_collision_point()
-		dist = point.distance_to(position)
-		print(point, " ", dist)
+		dist = point.distance_to(global_position)
 		$LaserBeam.points = [Vector2.ZERO, Vector2(0, -dist)]
 		if other.name == "Player":
 			other.explode()

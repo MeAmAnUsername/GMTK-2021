@@ -94,6 +94,7 @@ func _process(delta):
 	pitch = clamp(pitch, -90, 90)
 	
 	#pitch = 90
+	
 
 	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
 	#var rot_index = 8
