@@ -128,7 +128,8 @@ func explode():
 
 
 func _on_GrabArea_body_entered(body):
-	nearBeacon = body
+	if !is_connected:
+		nearBeacon = body
 
 
 func _on_GrabArea_body_exited(body):
