@@ -6,7 +6,7 @@
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Beacon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/Hud.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/HudWithoutPickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=8]
 
 [node name="Flat" type="Node2D"]
@@ -22,8 +22,6 @@ position = Vector2( 325.875, 608.153 )
 position = Vector2( 1005.25, 608.378 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
-
-[node name="CanvasLayer" parent="." instance=ExtResource( 7 )]
 
 [node name="Platform2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 658.44, 542.452 )
@@ -55,3 +53,5 @@ scale = Vector2( 23.6961, 28.6305 )
 [node name="Top" parent="Boundaries" instance=ExtResource( 1 )]
 position = Vector2( 633.414, -106.302 )
 scale = Vector2( 128, 16 )
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 7 )]

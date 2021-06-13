@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/CabinCondensed-Medium.ttf" type="DynamicFontData" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 0, 0.858824, 1, 1 )
+margin_right = 403.0
+margin_bottom = 104.0
+theme = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 398.0
+margin_bottom = 100.0
+custom_fonts/font = SubResource( 2 )
+text = "Move with left, right, up and down or WASD
+Stay within range of the beacons to fly
+R or delete to restart"
+__meta__ = {
+"_edit_use_anchors_": false
+}
