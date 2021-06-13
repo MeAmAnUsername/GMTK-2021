@@ -75,8 +75,8 @@ func _process(delta):
 	$RotorSound.pitch_scale = clamp($RotorSound.pitch_scale, 0.25, 0.75)
 	
 	var has_thrust = input_x !=0 or input_y !=0
-	$RotorSound.volume_db += delta * (10.0 if has_thrust else -10.0)
-	$RotorSound.volume_db = clamp($RotorSound.volume_db, -100, -6)
+	$RotorSound.volume_db += delta * (20.0 if has_thrust else -20.0)
+	$RotorSound.volume_db = clamp($RotorSound.volume_db, -20, -6)
 	
 	thrust_charge += delta * (1.25 if (input_y == 0) else -8.00)
 	torque_charge += delta * (2.50 if (input_x == 0) else -8.00)
@@ -111,26 +111,29 @@ func _integrate_forces(state):
 	# Try to stay upright
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
 	if beaconCount > 0 and (abs(angle_dif) < 1):
-		applied_torque += angle_dif * 3000
+		applied_torque += angle_dif * 4000
 	
 	var total_thrust = thrust_charge * 5000 + thrust
 	applied_force = Vector2(0, total_thrust * input_y).rotated(rotation + TAU*0.25)
 
 
 func explode():
-	$Explosion.emitting = true
-	dead = true
-	
+	if not dead:
+		$Explosion.emitting = true
+		$Explosion/ExplosionSound.play()
+		dead = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-
 func _on_GrabArea_body_entered(body):
 	nearBeacon = body
-
 
 func _on_GrabArea_body_exited(body):
 	if body == nearBeacon and !is_connected:
 		nearBeacon = null
+
+func _on_Player_body_entered(body):
+	$ImpactSound.play()
+	$ImpactSound.volume_db = -20 + clamp(linear_velocity.length() * 0.05, 0, 16)
