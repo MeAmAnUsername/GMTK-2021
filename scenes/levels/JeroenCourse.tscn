@@ -11,6 +11,48 @@
 [node name="BigRaiseHeavy" type="Node2D"]
 position = Vector2( 0, -1 )
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( -1238.08, 167.389 )
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+texture = ExtResource( 7 )
+polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2( -1235.08, -75.3367 )
+z_index = 1
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D4"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+texture = ExtResource( 7 )
+polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D4"]
+position = Vector2( -1038.16, -479.559 )
+scale = Vector2( 1.1875, 1.23017 )
+polygon = PoolVector2Array( 771.301, 347.046, 1004.55, 347.588, 1005.11, 427.342, 770.177, 426.257 )
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2( 0, -10.0908 )
 z_index = 1
@@ -24,7 +66,6 @@ __meta__ = {
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-visible = false
 position = Vector2( 36, -72 )
 scale = Vector2( 1.1875, 1.225 )
 texture = ExtResource( 7 )
@@ -40,6 +81,14 @@ scale = Vector2( 1.1875, 1.23017 )
 texture = ExtResource( 7 )
 polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2( 36, -73.0022 )
+scale = Vector2( 1.1875, 1.23017 )
+polygon = PoolVector2Array( -758.407, 1008.53, -761.408, 208.539, 2338.54, 193.993, 2341.55, 321.992, -560.346, 351.083, -578.352, 1014.35 )
+__meta__ = {
+"_editor_description_": ""
+}
+
 [node name="Platform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 496, 496 )
 scale = Vector2( 8, 1 )
@@ -53,7 +102,7 @@ position = Vector2( 560, 344 )
 scale = Vector2( 6, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -1554.79, -283.915 )
+position = Vector2( -1626.79, 520.085 )
 rotation = -1.57079
 
 [node name="ParallaxLayer" parent="." instance=ExtResource( 6 )]
@@ -63,17 +112,21 @@ position = Vector2( -490, -210 )
 format = 1
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1280, -7.99997 )
-scale = Vector2( 10, 40 )
+position = Vector2( 1607.85, -460.577 )
+scale = Vector2( 10, 9.6 )
 
 [node name="Beacon" parent="." instance=ExtResource( 3 )]
 position = Vector2( -3632.26, -836.117 )
 
 [node name="Beacon2" parent="." instance=ExtResource( 3 )]
-position = Vector2( -2711.64, -971.575 )
+position = Vector2( -1340.59, 88.2829 )
+rotation = 0.00261562
+
+[node name="Beacon3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1282.35, 555.937 )
 rotation = 0.00261562
 
 [node name="Node2D" parent="." instance=ExtResource( 8 )]
-position = Vector2( -1591.46, 419.41 )
+position = Vector2( -1593.24, -2.87622 )
 low = 60.0
 high = 120.0

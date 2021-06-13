@@ -35,9 +35,8 @@ func _ready():
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
 	rope = rope_pre.instance()
-	#get_tree().get_root().add_child(rope)
 	get_tree().get_root().call_deferred("add_child",rope)
-	#self.add_child(rope)
+	$AnimatedSprite.play()
 	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
