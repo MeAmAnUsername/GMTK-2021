@@ -94,6 +94,7 @@ func _process(delta):
 	pitch = clamp(pitch, -90, 90)
 	
 	#pitch = 90
+	
 
 	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
 	#var rot_index = 8
@@ -149,5 +150,6 @@ func _on_GrabArea_body_exited(body):
 		nearBeacon = null
 
 func _on_Player_body_entered(body):
-	$ImpactSound.play()
-	$ImpactSound.volume_db = -20 + clamp(linear_velocity.length() * 0.05, 0, 16)
+	if (linear_velocity.length() > 80):
+		$ImpactSound.play()
+		$ImpactSound.volume_db = -20 + clamp(linear_velocity.length() * 0.05, 0, 16)
