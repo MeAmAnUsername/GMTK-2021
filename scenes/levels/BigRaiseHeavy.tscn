@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://scenes/Laser.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/Background.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/rock.png" type="Texture" id=7]
+[ext_resource path="res://scenes/RotatingLaser.tscn" type="PackedScene" id=8]
 
 [node name="BigRaiseHeavy" type="Node2D"]
 position = Vector2( 0, -1 )
@@ -21,6 +23,7 @@ polygon = PoolVector2Array( -197.973, 524.373, 566.613, 524.373, 621.227, 305.92
 [node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
 position = Vector2( 36, -72 )
 scale = Vector2( 1.1875, 1.225 )
+texture = ExtResource( 7 )
 polygon = PoolVector2Array( -192, 528.98, 562.526, 528.98, 616.421, 320, 1209.26, 320, 1209.26, 685.714, -192, 685.714 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
@@ -37,18 +40,13 @@ scale = Vector2( 6, 1 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 383.984, 241.047 )
+rotation = -1.57079
 
-[node name="Node2D" parent="." instance=ExtResource( 3 )]
-position = Vector2( 445.636, 456.536 )
-
-[node name="ParallaxLayer" parent="Node2D" instance=ExtResource( 6 )]
+[node name="ParallaxLayer" parent="." instance=ExtResource( 6 )]
 
 [node name="Node2D2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 113.901, 572.163 )
-rotation = 1.34355
-
-[node name="Node2D3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 313.767, 41.4561 )
+rotation = -0.354697
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( -490, -210 )
@@ -57,3 +55,15 @@ format = 1
 [node name="Goal" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1280, -7.99997 )
 scale = Vector2( 10, 40 )
+
+[node name="Beacon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 388.903, 367.406 )
+
+[node name="Beacon2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 336.989, 369.525 )
+rotation = 0.00261562
+
+[node name="Node2D" parent="." instance=ExtResource( 8 )]
+position = Vector2( 627.282, 527.385 )
+low = 340.0
+high = 380.0
