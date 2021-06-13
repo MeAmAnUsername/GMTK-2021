@@ -87,7 +87,7 @@ radius = 2.86451
 height = 38.3172
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 39.5726
+radius = 68.9049
 
 [node name="Player" type="RigidBody2D"]
 position = Vector2( -7.62939e-06, 0.243225 )
