@@ -149,7 +149,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -113.581, -102.169 )
+position = Vector2( -1658.09, 521.92 )
 rotation = -1.57079
 script = null
 
