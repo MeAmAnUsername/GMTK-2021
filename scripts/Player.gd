@@ -20,7 +20,7 @@ var is_connected : bool
 var nearBeacon : RigidBody2D
 
 var rope_pre = preload( "res://scenes/Rope.tscn" )
-var rope_inst
+var rope
 
 func _init():
 	input = true
@@ -34,8 +34,10 @@ func _ready():
 	#$HeliSprite.play()
 	#$RotorSound.playing = true
 	$RotorSound.play(0.0)
-	rope_inst = rope_pre.instance()
-	get_tree().get_root().add_child(rope_inst)
+	rope = rope_pre.instance()
+	#get_tree().get_root().add_child(rope)
+	get_tree().get_root().call_deferred("add_child",rope)
+	#self.add_child(rope)
 	
 	#$RotorSound.stream.loop_mode = AudioStreamPlayer2D.LOOP_FORWARD
 
@@ -52,16 +54,22 @@ func _process(delta):
 		input_y = 0
 	
 	if attach_pressed:
+		print(is_connected, nearBeacon)
 		if !is_connected and nearBeacon != null:
 			is_connected = true
+			$RopeSpring.node_b = NodePath(nearBeacon.get_path())
+		elif is_connected and nearBeacon != null:
+			$RopeSpring.node_b = ""
+			is_connected = false
+			nearBeacon = null
+			
 	
-	#rope.visible = is_connected
-	#if is_connected and nearBeacon != null:
-		
-	#	rope_inst.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
-	#	print(rope_inst.points)
-		
-		
+	rope.visible = is_connected
+	if is_connected and nearBeacon != null:
+		#rope.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+		rope.position = position
+		rope.points = [Vector2.ZERO, nearBeacon.position ]
+		print(rope.points)
 	
 	$RotorSound.pitch_scale += delta * (1.0 if input else -1.0)
 	$RotorSound.pitch_scale = clamp($RotorSound.pitch_scale, 0.25, 0.75)
@@ -120,8 +128,7 @@ func explode():
 
 
 func _on_GrabArea_body_entered(body):
-	if body.name == "Beacon":
-		nearBeacon = body
+	nearBeacon = body
 
 
 func _on_GrabArea_body_exited(body):
