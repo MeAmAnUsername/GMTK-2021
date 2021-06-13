@@ -91,6 +91,7 @@ func _process(delta):
 	pitch = clamp(pitch, -90, 90)
 	
 	#pitch = 90
+	
 	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
 	#var rot_index = 8
 	$AnimatedSprite.frame = ($AnimatedSprite.frame % 4) + (4 * rot_index)
@@ -105,10 +106,12 @@ func _physics_process(_delta):
 	pass
 	
 func _integrate_forces(state):
+	if dead:
+		return
 	var desired_rotation = input_x * TAU*0.25
 	applied_torque = input_x * (torque + torque_charge * 8000)
 	
-	# Try to stay upright
+	# Try to stay upright	
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
 	if beaconCount > 0 and (abs(angle_dif) < 1):
 		applied_torque += angle_dif * 4000
@@ -122,6 +125,8 @@ func explode():
 		$Explosion.emitting = true
 		$Explosion/ExplosionSound.play()
 		dead = true
+		apply_torque_impulse(8000)
+		$AnimatedSprite.modulate = Color.black
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -24,7 +24,7 @@ polygon = PoolVector2Array( -197.973, 524.373, 566.613, 524.373, 621.227, 305.92
 position = Vector2( 36, -72 )
 scale = Vector2( 1.1875, 1.225 )
 texture = ExtResource( 7 )
-polygon = PoolVector2Array( -192, 528.98, 562.526, 528.98, 616.421, 320, 1209.26, 320, 1209.26, 685.714, -192, 685.714 )
+polygon = PoolVector2Array( -192, 528.98, 1343.72, 531.891, 1318.23, -256.149, 1502.34, -258.895, 1516.5, 669.18, -192, 685.714 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 496, 496 )
