@@ -94,9 +94,6 @@ func _process(delta):
 	pitch += input_y * delta * 90 * 4
 	pitch = linear_velocity.y * 0.6 #sign(linear_velocity.y) * sqrt(abs(linear_velocity.y)) * 0.80
 	pitch = clamp(pitch, -90, 90)
-	
-	#pitch = 90
-	
 
 	var rot_index = int(clamp(8 + 8*(pitch/90), 0, 15))
 	#var rot_index = 8
@@ -121,7 +118,7 @@ func _integrate_forces(state):
 	# Try to stay upright
 	var angle_dif = (-TAU*0.25 - rotation) / (TAU*0.25)
 	if beaconCount > 0 and (abs(angle_dif) < 1):
-		applied_torque += angle_dif * 4500
+		applied_torque += angle_dif * 5000
 	
 	var total_thrust = thrust_charge * 5000 + thrust
 	applied_force = Vector2(0, total_thrust * input_y).rotated(rotation + TAU*0.25)

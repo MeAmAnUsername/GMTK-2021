@@ -15,9 +15,19 @@
 bottom = 640
 right = 1280
 
+[node name="Node2D" parent="." instance=ExtResource( 5 )]
+position = Vector2( 325.875, 608.153 )
+
+[node name="Beacon" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1005.25, 608.378 )
+
 [node name="ParallaxBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 7 )]
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 658.44, 542.452 )
+scale = Vector2( 106.825, 2.42344 )
 
 [node name="Platform" parent="." instance=ExtResource( 1 )]
 position = Vector2( 640, 688 )
@@ -29,11 +39,8 @@ scale = Vector2( 10, 40 )
 change_to = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 376, 96 )
+position = Vector2( 271.119, 151.437 )
 rotation = -1.57079
-
-[node name="Node2D" parent="." instance=ExtResource( 5 )]
-position = Vector2( 481.646, 610.324 )
 
 [node name="Boundaries" type="Node2D" parent="."]
 
