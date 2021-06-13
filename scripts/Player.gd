@@ -66,13 +66,11 @@ func _process(delta):
 			nearBeacon = null
 
 
-	rope.visible = is_connected
-	if is_connected and nearBeacon != null:
-		#rope.points = [Vector2.ZERO, position.direction_to(nearBeacon.position) * position.distance_to(nearBeacon.position)]
+	rope.visible = is_connected and !dead
+	if is_connected and nearBeacon != null:		
 		nearBeacon.modulate = Color.white
 		rope.position = position
 		rope.points = [Vector2.ZERO, nearBeacon.position-self.position ]
-		print(rope.points)
 	
 	$RotorSound.pitch_scale += delta * (1.0 if input else -1.0)
 	$RotorSound.pitch_scale = clamp($RotorSound.pitch_scale, 0.25, 0.75)
@@ -134,6 +132,7 @@ func explode():
 		#gravity_scale = 40
 		$AnimatedSprite.modulate = Color.black
 		$SmokeEmitter.emitting = true
+		$RopeSpring.node_b = ""
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
