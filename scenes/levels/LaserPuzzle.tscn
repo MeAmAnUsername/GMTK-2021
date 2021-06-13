@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/rock.png" type="Texture" id=1]
 [ext_resource path="res://scenes/levels/elements/Platform.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scenes/levels/elements/LevelPropertyRegisterer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scripts/GeneratePolygon.gd" type="Script" id=7]
 [ext_resource path="res://scenes/levels/elements/Goal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/levels/EndScreen.tscn" type="PackedScene" id=9]
 
 [node name="LaserPuzzle" type="Node2D"]
 
@@ -68,3 +69,4 @@ z_index = -10
 [node name="Goal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1216, 304 )
 scale = Vector2( 6, 30 )
+change_to = ExtResource( 9 )
